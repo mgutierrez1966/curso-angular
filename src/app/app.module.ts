@@ -1,3 +1,4 @@
+import { TitleCasePipe } from './titlecase.pipe';
 import { FavoriteComponent } from './favorite/favorite.component';
 import { FavoritoComponent } from './favorito/favorito.component';
 import { ResumenPipe } from './resumen.pipe';
@@ -10,6 +11,7 @@ import { FormsModule } from '@angular/forms'
 import { AppComponent } from './app.component';
 import { CourseComponent } from './course/course.component';
 import { LikeComponent } from './like/like.component';
+import { TitleCasingComponent } from './title-casing/title-casing.component';
 
 
 @NgModule({
@@ -20,7 +22,9 @@ import { LikeComponent } from './like/like.component';
     LikeComponent,
     ResumenPipe, 
     FavoritoComponent,
-    FavoriteComponent
+    FavoriteComponent,
+    TitleCasingComponent,
+    TitleCasePipe
   ],
   imports: [
     BrowserModule,

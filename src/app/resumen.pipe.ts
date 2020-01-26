@@ -1,12 +1,16 @@
 import { Pipe, PipeTransform } from '@angular/core';
 
-@Pipe ({
+@Pipe({
     name: 'resumen'
 })
 export class ResumenPipe implements PipeTransform {
 
-    transform(value:string, args:any) {
-        return value.substr(value, 2) + "...";
-        
+    transform(value: any, args: any) {
+
+        if (!value)
+            return null
+        else
+            return value.substr(value, 2) + "...";
+
     }
 }
