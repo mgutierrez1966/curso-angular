@@ -12,6 +12,7 @@ import { AppComponent } from './app.component';
 import { CourseComponent } from './course/course.component';
 import { LikeComponent } from './like/like.component';
 import { TitleCasingComponent } from './title-casing/title-casing.component';
+import { TweetLikeComponent } from './tweet-like/tweet-like.component';
 
 
 @NgModule({
@@ -24,7 +25,8 @@ import { TitleCasingComponent } from './title-casing/title-casing.component';
     FavoritoComponent,
     FavoriteComponent,
     TitleCasingComponent,
-    TitleCasePipe
+    TitleCasePipe,
+    TweetLikeComponent
   ],
   imports: [
     BrowserModule,
