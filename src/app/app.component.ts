@@ -11,5 +11,7 @@ export class AppComponent {
     isActive: false,
     likesCount: 0,
     body: "Este es mi tweet"
-  }
+  };
+
+  modoVista = 'list';
 }

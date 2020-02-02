@@ -1,4 +1,17 @@
-<tweet-like 
+<!-- <tweet-like 
     [likesCount]= "tweet.likesCount"
     [isActive] = "tweet.isActive">
-</tweet-like>
+</tweet-like> -->
+
+<ul class="nav nav-tabs">
+    <li class= "nav-item"><a [class.active]="modoVista == 'map'" class="nav-link"  (click) = "modoVista = 'map'">Map view</a></li>
+    <li class="nav-item"><a [class.active]="modoVista == 'list'" class= "nav-link" (click) = "modoVista = 'list'">List view</a></li>
+</ul>
+<div [ngSwitch] = "modoVista">
+    <div *ngSwitchCase = "'map'">Map content</div>
+    <div *ngSwitchCase = "'list'">List content</div>
+</div>
+
+<ul>
+    <li *ngFor="let elemento of miArray; index as i"> {{elemento}} numero {{i}}</li>
+</ul> 
