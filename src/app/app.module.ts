@@ -13,6 +13,7 @@ import { CourseComponent } from './course/course.component';
 import { LikeComponent } from './like/like.component';
 import { TitleCasingComponent } from './title-casing/title-casing.component';
 import { TweetLikeComponent } from './tweet-like/tweet-like.component';
+import { MiDirectivaDirective } from './mi-directiva.directive';
 
 
 @NgModule({
@@ -26,7 +27,8 @@ import { TweetLikeComponent } from './tweet-like/tweet-like.component';
     FavoriteComponent,
     TitleCasingComponent,
     TitleCasePipe,
-    TweetLikeComponent
+    TweetLikeComponent,
+    MiDirectivaDirective
   ],
   imports: [
     BrowserModule,
