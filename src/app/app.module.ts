@@ -14,6 +14,9 @@ import { LikeComponent } from './like/like.component';
 import { TitleCasingComponent } from './title-casing/title-casing.component';
 import { TweetLikeComponent } from './tweet-like/tweet-like.component';
 import { MiDirectivaDirective } from './mi-directiva.directive';
+import { ZippyComponent } from './zippy/zippy.component';
+import { ZippyBoxDirective } from './zippy-box.directive';
+import { FontAwesomeModule} from '@fortawesome/angular-fontawesome';
 
 
 @NgModule({
@@ -28,11 +31,15 @@ import { MiDirectivaDirective } from './mi-directiva.directive';
     TitleCasingComponent,
     TitleCasePipe,
     TweetLikeComponent,
-    MiDirectivaDirective
+    MiDirectivaDirective,
+    ZippyComponent,
+    ZippyBoxDirective
   ],
   imports: [
     BrowserModule,
-    FormsModule
+    FormsModule,
+    FontAwesomeModule
+    
   ],
   providers: [
     CoursesService
