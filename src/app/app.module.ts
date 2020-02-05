@@ -16,7 +16,8 @@ import { TweetLikeComponent } from './tweet-like/tweet-like.component';
 import { MiDirectivaDirective } from './mi-directiva.directive';
 import { ZippyComponent } from './zippy/zippy.component';
 import { ZippyBoxDirective } from './zippy-box.directive';
-import { FontAwesomeModule} from '@fortawesome/angular-fontawesome';
+import { ContactFormComponent } from './contact-form/contact-form.component';
+//import { FontAwesomeModule} from '@fortawesome/angular-fontawesome';
 
 
 @NgModule({
@@ -33,12 +34,13 @@ import { FontAwesomeModule} from '@fortawesome/angular-fontawesome';
     TweetLikeComponent,
     MiDirectivaDirective,
     ZippyComponent,
-    ZippyBoxDirective
+    ZippyBoxDirective,
+    ContactFormComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
-    FontAwesomeModule
+    //FontAwesomeModule
     
   ],
   providers: [

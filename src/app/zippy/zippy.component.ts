@@ -1,5 +1,5 @@
 import { Component, Input } from '@angular/core';
-import {faChevronDown, faChevronUp} from '@fortawesome/free-solid-svg-icons';
+//import {faChevronDown, faChevronUp} from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'zippy',
@@ -8,8 +8,8 @@ import {faChevronDown, faChevronUp} from '@fortawesome/free-solid-svg-icons';
 })
 export class ZippyComponent {
 
-  faChevronDown = faChevronDown;
-  faChevronUp = faChevronUp;
+  // faChevronDown = faChevronDown;
+  // faChevronUp = faChevronUp;
 
   private collapsed = true;
   @Input("title") title: string;

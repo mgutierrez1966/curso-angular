@@ -1,7 +1,7 @@
 <div class="zippy">
     <div class="zippy-cabecera" [class.expanded]="!collapsed" (click)="onClick()">
         {{ title }}
-        <fa-icon [icon]="collapsed? faChevronDown : faChevronUp"></fa-icon>
+        <!-- <fa-icon [icon]="collapsed? faChevronDown : faChevronUp"></fa-icon> -->
     </div>
     <div *ngIf="!collapsed" class="zippy-body">
         <ng-content></ng-content>
