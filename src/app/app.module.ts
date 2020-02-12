@@ -17,6 +17,7 @@ import { MiDirectivaDirective } from './mi-directiva.directive';
 import { ZippyComponent } from './zippy/zippy.component';
 import { ZippyBoxDirective } from './zippy-box.directive';
 import { ContactFormComponent } from './contact-form/contact-form.component';
+import { SignupFormComponent } from './signup-form/signup-form.component';
 //import { FontAwesomeModule} from '@fortawesome/angular-fontawesome';
 
 
@@ -35,7 +36,8 @@ import { ContactFormComponent } from './contact-form/contact-form.component';
     MiDirectivaDirective,
     ZippyComponent,
     ZippyBoxDirective,
-    ContactFormComponent
+    ContactFormComponent,
+    SignupFormComponent
   ],
   imports: [
     BrowserModule,

@@ -1,0 +1,13 @@
+<form #f="ngForm" (ngSubmit)="submit(f)">
+    <div class="form-group">
+        <label for="firstName">Nombre</label>
+        <input required ngModel name="firstName" #firstName="ngModel" id="firstName" type="text" class="form-control" (click)="log(firstName)">
+        <div *ngIf="firstName.touched && !firstName.valid" class="alert alert-danger">Campo es requerido</div>
+    </div>
+    <div class="form-group">
+        <label for="comment">Comentario</label>
+        <textarea ngModel name="comment" id="comment" cols="30" rows="10" class="form-control"></textarea>
+    </div>
+    <button [disabled]="!firstName.valid" class="btn btn-primary">Submit</button>
+    <button class="btn">Cancelar</button>
+</form>
