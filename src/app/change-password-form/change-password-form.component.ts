@@ -13,13 +13,17 @@ export class ChangePasswordFormComponent  {
 
   constructor(fb: FormBuilder){
     this.form = fb.group({
-      oldPassword: ['', [Validators.required], [PasswordValidator.oldPasswordValid]],
+      oldPassword: ['', [Validators.required ], [PasswordValidator.oldPasswordValid]],
       newPassword: ['', Validators.required],
       confirmPassword: ['', Validators.required]
+    }, 
+    {
+      validators: PasswordValidator.passwordNotMatches
     })
   }
 
   log(value) {
     console.log(value)
   }
+
 }
