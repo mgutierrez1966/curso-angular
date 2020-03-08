@@ -19,6 +19,8 @@ import { ZippyBoxDirective } from './zippy-box.directive';
 import { ContactFormComponent } from './contact-form/contact-form.component';
 import { SignupFormComponent } from './signup-form/signup-form.component';
 import { CourseFormComponent } from './course-form/course-form.component';
+import { NewCourseFormComponent } from './new-course-form/new-course-form.component';
+import { ChangePasswordFormComponent } from './change-password-form/change-password-form.component';
 //import { FontAwesomeModule} from '@fortawesome/angular-fontawesome';
 
 
@@ -39,7 +41,9 @@ import { CourseFormComponent } from './course-form/course-form.component';
     ZippyBoxDirective,
     ContactFormComponent,
     SignupFormComponent,
-    CourseFormComponent
+    CourseFormComponent,
+    NewCourseFormComponent,
+    ChangePasswordFormComponent
   ],
   imports: [
     BrowserModule,
