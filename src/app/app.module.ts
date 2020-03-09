@@ -1,3 +1,5 @@
+import { PostService } from './services/post.service';
+import { HttpClientModule } from '@angular/common/http';
 import { TitleCasePipe } from './titlecase.pipe';
 import { FavoriteComponent } from './favorite/favorite.component';
 import { FavoritoComponent } from './favorito/favorito.component';
@@ -21,6 +23,8 @@ import { SignupFormComponent } from './signup-form/signup-form.component';
 import { CourseFormComponent } from './course-form/course-form.component';
 import { NewCourseFormComponent } from './new-course-form/new-course-form.component';
 import { ChangePasswordFormComponent } from './change-password-form/change-password-form.component';
+import { PostComponentComponent } from './post-component/post-component.component';
+
 //import { FontAwesomeModule} from '@fortawesome/angular-fontawesome';
 
 
@@ -43,17 +47,18 @@ import { ChangePasswordFormComponent } from './change-password-form/change-passw
     SignupFormComponent,
     CourseFormComponent,
     NewCourseFormComponent,
-    ChangePasswordFormComponent
+    ChangePasswordFormComponent,
+    PostComponentComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
-    ReactiveFormsModule
-    //FontAwesomeModule
-    
+    ReactiveFormsModule,
+    HttpClientModule
   ],
   providers: [
-    CoursesService
+    CoursesService,
+    PostService
   ],
   bootstrap: [AppComponent]
 })
