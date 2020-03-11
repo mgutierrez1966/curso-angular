@@ -27,6 +27,12 @@ import { PostComponentComponent } from './post-component/post-component.componen
 import { AppErrorHandler } from './common/app-error-handler';
 import { GitFollowersComponent } from './git-followers/git-followers.component';
 import { GitFollowerService } from './services/git-follower.service';
+import { RouterModule } from '@angular/router';
+import { HomeComponent } from './home/home.component';
+import { GithubProfileComponent } from './github-profile/github-profile.component';
+import { NotFoundComponent } from './not-found/not-found.component';
+import { NavbarComponent } from './navbar/navbar.component';
+
 
 //import { FontAwesomeModule} from '@fortawesome/angular-fontawesome';
 
@@ -37,7 +43,7 @@ import { GitFollowerService } from './services/git-follower.service';
     CoursesComponent,
     CourseComponent,
     LikeComponent,
-    ResumenPipe, 
+    ResumenPipe,
     FavoritoComponent,
     FavoriteComponent,
     TitleCasingComponent,
@@ -52,18 +58,30 @@ import { GitFollowerService } from './services/git-follower.service';
     NewCourseFormComponent,
     ChangePasswordFormComponent,
     PostComponentComponent,
-    GitFollowersComponent
+    GitFollowersComponent,
+    NotFoundComponent,
+    GithubProfileComponent,
+    HomeComponent,
+    NavbarComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
     ReactiveFormsModule,
-    HttpClientModule
+    HttpClientModule,    
+    RouterModule.forRoot([
+      { path: '', component: HomeComponent },
+      { path: 'followers/:id', component: GithubProfileComponent },
+      { path: 'followers', component: GitFollowersComponent },
+      { path: 'profile/:username', component: GithubProfileComponent },
+      { path: 'post', component: PostComponentComponent },
+      { path: '**', component: NotFoundComponent }
+    ])
   ],
   providers: [
     CoursesService,
     PostService,
-    { provide: ErrorHandler, useClass: AppErrorHandler},
+    { provide: ErrorHandler, useClass: AppErrorHandler },
     GitFollowerService
   ],
   bootstrap: [AppComponent]
