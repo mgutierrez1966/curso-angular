@@ -7,7 +7,7 @@ import { ResumenPipe } from './resumen.pipe';
 import { CoursesService } from './courses.service';
 import { CoursesComponent } from './courses.component';
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import { NgModule, ErrorHandler } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms'
 
 import { AppComponent } from './app.component';
@@ -24,6 +24,15 @@ import { CourseFormComponent } from './course-form/course-form.component';
 import { NewCourseFormComponent } from './new-course-form/new-course-form.component';
 import { ChangePasswordFormComponent } from './change-password-form/change-password-form.component';
 import { PostComponentComponent } from './post-component/post-component.component';
+import { AppErrorHandler } from './common/app-error-handler';
+import { GitFollowersComponent } from './git-followers/git-followers.component';
+import { GitFollowerService } from './services/git-follower.service';
+import { RouterModule } from '@angular/router';
+import { HomeComponent } from './home/home.component';
+import { GithubProfileComponent } from './github-profile/github-profile.component';
+import { NotFoundComponent } from './not-found/not-found.component';
+import { NavbarComponent } from './navbar/navbar.component';
+
 
 //import { FontAwesomeModule} from '@fortawesome/angular-fontawesome';
 
@@ -34,7 +43,7 @@ import { PostComponentComponent } from './post-component/post-component.componen
     CoursesComponent,
     CourseComponent,
     LikeComponent,
-    ResumenPipe, 
+    ResumenPipe,
     FavoritoComponent,
     FavoriteComponent,
     TitleCasingComponent,
@@ -48,17 +57,32 @@ import { PostComponentComponent } from './post-component/post-component.componen
     CourseFormComponent,
     NewCourseFormComponent,
     ChangePasswordFormComponent,
-    PostComponentComponent
+    PostComponentComponent,
+    GitFollowersComponent,
+    NotFoundComponent,
+    GithubProfileComponent,
+    HomeComponent,
+    NavbarComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
     ReactiveFormsModule,
-    HttpClientModule
+    HttpClientModule,    
+    RouterModule.forRoot([
+      { path: '', component: HomeComponent },
+      { path: 'followers/:id', component: GithubProfileComponent },
+      { path: 'followers', component: GitFollowersComponent },
+      { path: 'profile/:username', component: GithubProfileComponent },
+      { path: 'post', component: PostComponentComponent },
+      { path: '**', component: NotFoundComponent }
+    ])
   ],
   providers: [
     CoursesService,
-    PostService
+    PostService,
+    { provide: ErrorHandler, useClass: AppErrorHandler },
+    GitFollowerService
   ],
   bootstrap: [AppComponent]
 })

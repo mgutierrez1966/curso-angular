@@ -1,0 +1,22 @@
+li.follower {
+    list-style-type: none;
+    margin-top: 20px;
+    display: block;
+    min-height: 100px;
+}
+
+li.follower img {
+    width: 80px;
+    border-radius: 20%;
+    float: left;
+    margin-right: 20px;
+}
+
+li.follower h2 {
+    font-size: 1.5em;
+}
+
+li.follower div.url {
+    position: relative;
+    margin-left: 10px;
+}

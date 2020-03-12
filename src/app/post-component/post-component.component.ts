@@ -45,16 +45,16 @@ export class PostComponentComponent implements OnInit {
   }
 
   updatePost(post) {
-    this.service.updatePost(post, { isRead: true })
-      .subscribe(
-        response => {
-          console.log(response);
-        },
-        error => {
-          alert("Se ha producido un error inesperado");
-          console.log(error);
-        })
-    // this.http.put(this.url, post);
+    this.service.updatePost(post, {isRead : true})
+      .subscribe(response => {
+        console.log(response);
+      }, 
+      (error : Response) => {
+        if (error.status === 400) {
+          // Acciones para manejar el error
+        }
+        else throw error;
+      })
   }
 
   deletePost(post) {
@@ -63,6 +63,6 @@ export class PostComponentComponent implements OnInit {
         console.log(response);
         let index = this.posts.indexOf(post);
         this.posts.splice(index, 1);
-      }c)
+      })
   }
 }

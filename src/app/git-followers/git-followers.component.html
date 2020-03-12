@@ -1,0 +1,8 @@
+<h1>Mis seguidores en Git</h1>
+<ul>
+    <li *ngFor="let f of followers" class="follower">
+        <img src="{{f.avatar_url}}" alt="">
+        <h2><a [routerLink]="['/followers', f.id]">{{ f.login }}</a></h2>
+        <a routerLink="{{ f.html_url }}">{{ f.html_url }}</a>
+    </li>
+</ul>
