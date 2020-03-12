@@ -1,5 +1,8 @@
+import { AppError } from './../common/app-error';
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { catchError, retry } from 'rxjs/operators';
+import { Observable } from 'rxjs/Observable';
 
 @Injectable({
   providedIn: 'root'
@@ -7,11 +10,11 @@ import { Injectable } from '@angular/core';
 export class PostService {
 
   private url = "https://jsonplaceholder.typicode.com/posts";
-  
+
 
   constructor(private http: HttpClient) { }
 
-  getPosts(){
+  getPosts() {
     return this.http.get(this.url);
   };
 
@@ -24,6 +27,10 @@ export class PostService {
   };
 
   deletePost(post) {
-    return this.http.delete(this.url + '/' + post.id)
+    return this.http.delete(this.url + '/' + post.id).pipe(
+      catchError(error => {
+        return Observable.throw(new AppError(error));
+      })
+    )
   }
 }

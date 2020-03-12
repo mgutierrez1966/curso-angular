@@ -8,39 +8,61 @@ import { HttpClient } from '@angular/common/http';
   styleUrls: ['./post-component.component.css']
 })
 export class PostComponentComponent implements OnInit {
-  
+
   posts: any[];
-  
+
   ngOnInit(): void {
     this.service.getPosts()
-      .subscribe((response:any) => {
-      this.posts = response;
-    });
+      .subscribe(
+        (response: any) => {
+          this.posts = response;
+        },
+        error => {
+          alert("Se ha producido un error inesperado");
+          console.log(error);
+        });
   }
 
 
   constructor(private service: PostService) { };
 
-  createPost(input: HTMLInputElement){
-    let post = { title: input.value};
-    this.service.createPost(post).subscribe( response => {
-      this.posts.splice(0, 0, post);
-    })
+  createPost(input: HTMLInputElement) {
+    let post = { title: input.value };
+    this.service.createPost(post).subscribe(
+      response => {
+        this.posts.splice(0, 0, post);
+      },
+      (error: Response) => {
+        if (error.status === 400) {
+          // Bad request error 
+        }
+        else {
+          alert("Se ha producido un error inesperado");
+          console.log(error);
+        }
+      }
+    )
   }
 
   updatePost(post) {
-    this.service.updatePost(post, {isRead : true})
-      .subscribe(response => {
-        console.log(response);
-      })
+    this.service.updatePost(post, { isRead: true })
+      .subscribe(
+        response => {
+          console.log(response);
+        },
+        error => {
+          alert("Se ha producido un error inesperado");
+          console.log(error);
+        })
     // this.http.put(this.url, post);
   }
 
   deletePost(post) {
-    this.service.deletePost(post).subscribe(response => {
-      console.log(response);
-      let index = this.posts.indexOf(post);
-      this.posts.splice(index, 1);
-    })
+    this.service.deletePost(post).subscribe(
+      response => {
+        console.log(response);
+        let index = this.posts.indexOf(post);
+        this.posts.splice(index, 1);
+      }c)
   }
 }
