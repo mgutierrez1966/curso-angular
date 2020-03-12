@@ -11,7 +11,7 @@ export class GitFollowerService {
   private baseUrl = "https://api.github.com/users/";
 
   getFollowers(user: string) {
-    return this.http.get(this.baseUrl + user + "/followers");
+    return this.http.get(this.baseUrl + user + "/followers", {responseType : "arraybuffer"});
   }
 
   constructor(private http: HttpClient) { }
