@@ -1,4 +1,4 @@
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Observable } from 'rxjs/Observable';
 import { Component, OnInit } from '@angular/core';
 import { GitFollowerService } from '../services/git-follower.service';
@@ -16,7 +16,8 @@ export class GitFollowersComponent implements OnInit {
 
   constructor(
     private route: ActivatedRoute,
-    private service: GitFollowerService) { }
+    private service: GitFollowerService,
+    private router: Router) { }
 
   ngOnInit() {
 
@@ -31,22 +32,22 @@ export class GitFollowersComponent implements OnInit {
       }
     )
     .subscribe( followers => {
-      this.followers = followers;
+      //this.followers = followers;
     });
     
     
-    subscribe(combinado => {
-      let id = combinado[0].get('id');
-      let page = combinado[1].get('page');
+    // subscribe(combinado => {
+    //   let id = combinado[0].get('id');
+    //   let page = combinado[1].get('page');
 
-      // Usar los parametros...
-      this.service.getFollowers('mosh-hamedani')
-        .subscribe(
-          (response) => {
-            this.followers = response;
-          }
-        )
-    });
+    //   // Usar los parametros...
+    //   this.service.getFollowers('mosh-hamedani')
+    //     .subscribe(
+    //       (response) => {
+    //         this.followers = response;
+    //       }
+    //     )
+    // });
 
 
   }

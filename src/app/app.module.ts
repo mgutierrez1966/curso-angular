@@ -32,6 +32,9 @@ import { HomeComponent } from './home/home.component';
 import { GithubProfileComponent } from './github-profile/github-profile.component';
 import { NotFoundComponent } from './not-found/not-found.component';
 import { NavbarComponent } from './navbar/navbar.component';
+import { ArchiveHomePageComponent } from './archive-home-page/archive-home-page.component';
+import { ArchiveDetailComponent } from './archive-detail/archive-detail.component';
+import { ArchiveNotFoundComponent } from './archive-not-found/archive-not-found.component';
 
 
 //import { FontAwesomeModule} from '@fortawesome/angular-fontawesome';
@@ -62,7 +65,10 @@ import { NavbarComponent } from './navbar/navbar.component';
     NotFoundComponent,
     GithubProfileComponent,
     HomeComponent,
-    NavbarComponent
+    NavbarComponent,
+    ArchiveHomePageComponent,
+    ArchiveDetailComponent,
+    ArchiveNotFoundComponent
   ],
   imports: [
     BrowserModule,
@@ -70,13 +76,18 @@ import { NavbarComponent } from './navbar/navbar.component';
     ReactiveFormsModule,
     HttpClientModule,    
     RouterModule.forRoot([
-      { path: '', component: HomeComponent },
-      { path: 'followers/:id', component: GithubProfileComponent },
-      { path: 'followers', component: GitFollowersComponent },
-      { path: 'profile/:username', component: GithubProfileComponent },
-      { path: 'post', component: PostComponentComponent },
-      { path: '**', component: NotFoundComponent }
+      {path: "", component: ArchiveHomePageComponent},
+      { path: "archive/:year/:month", component: ArchiveDetailComponent},
+      { path: "**", component: ArchiveNotFoundComponent}
     ])
+    // RouterModule.forRoot([
+    //   { path: '', component: HomeComponent },
+    //   { path: 'followers/:id', component: GithubProfileComponent },
+    //   { path: 'followers', component: GitFollowersComponent },
+    //   { path: 'profile/:username', component: GithubProfileComponent },
+    //   { path: 'post', component: PostComponentComponent },
+    //   { path: '**', component: NotFoundComponent }
+    // ])
   ],
   providers: [
     CoursesService,
